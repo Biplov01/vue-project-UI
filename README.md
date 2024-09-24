@@ -26,6 +26,8 @@ This project implements a dashboard UI using Vue.js, HTML, and CSS, featuring a 
 
 
 npm install
+
+
 3. **Run the application**:
 
 
