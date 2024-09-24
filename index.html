@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app" class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <h2>JoBins</h2>
+      </div>
+      <ul class="menu">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Order Management</a></li>
+        <li><a href="#">Brand</a></li>
+        <li><a href="#">Add Products</a></li>
+        <li><a href="#">Product List</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <div class="header">
+        <h1>Dashboard</h1>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="cards">
+        <div class="card">
+          <h3>Total Sales & Costs</h3>
+          <p class="highlight">$350K</p>
+          <span class="status">+5.85% vs last 7 days</span>
+        </div>
+        <div class="card">
+          <h3>Total Profit</h3>
+          <p class="highlight">$50K</p>
+          <span class="status">+12% vs last 7 days</span>
+        </div>
+        <div class="card">
+          <h3>Countries</h3>
+          <p>USA: 30K <span class="positive">+25.8%</span></p>
+          <p>Brazil: 26K <span class="negative">-16.2%</span></p>
+          <p>Australia: 17K <span class="negative">-11.9%</span></p>
+        </div>
+      </div>
+
+      <!-- User Info -->
+      <div class="user-info">
+        <div class="profile">
+          <h3>Robert Fox</h3>
+          <p>robert@mail.com</p>
+          <div class="info">
+            <p><strong>Contact Number:</strong> (201) 555-0124</p>
+            <p><strong>Date of Birth:</strong> 1 Jan, 1985</p>
+            <p><strong>Member Since:</strong> 3 March, 2023</p>
+            <p><strong>Shipping Address:</strong> 3517 W. Gray St., Litua, Pennsylvania 57567</p>
+          </div>
+        </div>
+        <div class="summary">
+          <div class="orders-summary">
+            <p><strong>Total Orders:</strong> 150</p>
+            <p><strong>Completed:</strong> 140</p>
+            <p><strong>Canceled:</strong> 10</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orders Table -->
+      <div class="orders">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Total</th>
+              <th>Method</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="order in orders" :key="order.id">
+              <td>{{ order.id }}</td>
+              <td>{{ order.customer }}</td>
+              <td>{{ order.date }}</td>
+              <td>{{ order.total }}</td>
+              <td>{{ order.method }}</td>
+              <td class="status" :class="order.status.toLowerCase()">{{ order.status }}</td>
+              <td><a href="#" class="action-link">View Details</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <button class="prev">Previous</button>
+          <button class="next">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
